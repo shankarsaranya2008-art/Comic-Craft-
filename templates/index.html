@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            TURN IDEAS INTO COMICS
+        </p>
+
+        <h1>
+
+            Your story.
+
+            <br>
+
+            <span>Five panels.</span>
+
+            <br>
+
+            One finished comic.
+
+        </h1>
+
+        <p class="lead">
+
+            Describe your idea and ComicCraft creates
+            the outline, narration, dialogue,
+            illustrations and PDF.
+
+        </p>
+
+    </div>
+
+
+    <div class="card form-card">
+
+        <h2>
+            Create a Comic
+        </h2>
+
+
+        <form
+            action="/generate"
+            method="post"
+            id="comic-form"
+        >
+
+            <!-- Story Prompt -->
+
+            <label>
+
+                Story Prompt
+
+                <textarea
+                    name="story_prompt"
+                    rows="5"
+                    placeholder="A brave fox exploring an enchanted forest..."
+                    required
+                ></textarea>
+
+            </label>
+
+
+            <!-- Character / Setting -->
+
+            <div class="grid-2">
+
+                <label>
+
+                    Main Character
+
+                    <input
+                        name="character_name"
+                        placeholder="Luna"
+                        required
+                    >
+
+                </label>
+
+
+                <label>
+
+                    Setting
+
+                    <select name="setting">
+
+                        <option>
+                            Enchanted forest
+                        </option>
+
+                        <option>
+                            School
+                        </option>
+
+                        <option>
+                            Space station
+                        </option>
+
+                        <option>
+                            Futuristic city
+                        </option>
+
+                        <option>
+                            Ancient kingdom
+                        </option>
+
+                        <option>
+                            Custom
+                        </option>
+
+                    </select>
+
+                </label>
+
+            </div>
+
+
+            <!-- Tone / Art style -->
+
+            <div class="grid-2">
+
+                <label>
+
+                    Story Tone
+
+                    <select name="tone">
+
+                        <option>
+                            Light-hearted
+                        </option>
+
+                        <option>
+                            Dramatic
+                        </option>
+
+                        <option>
+                            Funny
+                        </option>
+
+                        <option>
+                            Poetic
+                        </option>
+
+                        <option>
+                            Adventurous
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <label>
+
+                    Art Style
+
+                    <select name="art_style">
+
+                        <option>
+                            Comic book
+                        </option>
+
+                        <option>
+                            Anime
+                        </option>
+
+                        <option>
+                            Pixel art
+                        </option>
+
+                        <option>
+                            Watercolor
+                        </option>
+
+                        <option>
+                            Realistic
+                        </option>
+
+                    </select>
+
+                </label>
+
+            </div>
+
+
+            <button
+                class="primary"
+                type="submit"
+                id="generate-btn"
+            >
+
+                <span>
+                    Generate My Comic
+                </span>
+
+            </button>
+
+
+            <p class="hint">
+
+                Generation may take several minutes
+                when local Stable Diffusion is enabled.
+
+            </p>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

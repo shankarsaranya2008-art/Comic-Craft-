@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<section class="error card">
+
+    <p class="eyebrow">
+        SOMETHING WENT WRONG
+    </p>
+
+
+    <h1>
+        Comic generation failed.
+    </h1>
+
+
+    <p class="error-message">
+        {{ error }}
+    </p>
+
+
+    <a
+        class="primary button"
+        href="/"
+    >
+        Back to ComicCraft
+    </a>
+
+</section>
+
+{% endblock %}

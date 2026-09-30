@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<section class="page-heading">
+
+    <p class="eyebrow">
+        YOUR COMIC IS READY
+    </p>
+
+    <h1>
+        Five-panel story preview
+    </h1>
+
+    <p>
+
+        Generated for
+
+        <strong>
+            {{ input.character_name }}
+        </strong>
+
+        in a
+
+        {{ input.art_style }}
+
+        style.
+
+    </p>
+
+</section>
+
+
+<!-- Actions -->
+
+<div class="actions">
+
+    <a
+        class="primary button"
+        href="/download/{{ pdf_name }}"
+    >
+        Download Your Comic as PDF
+    </a>
+
+
+    <a
+        class="secondary button"
+        href="/export-success?filename={{ pdf_name }}"
+    >
+        Open Export Success
+    </a>
+
+
+    <a
+        class="secondary button"
+        href="/"
+    >
+        Create Another
+    </a>
+
+</div>
+
+
+<!-- Comic panels -->
+
+<section class="comic">
+
+{% for panel in layout %}
+
+    <article class="panel">
+
+        <div class="panel-number">
+
+            PANEL
+            {{ panel.panel_number }}
+
+        </div>
+
+
+        <h2>
+            {{ panel.title }}
+        </h2>
+
+
+        <img
+            src="{{ panel.image_url }}"
+            alt="Illustration for panel {{ panel.panel_number }}"
+        >
+
+
+        <p class="scene">
+
+            <em>
+                {{ panel.scene_description }}
+            </em>
+
+        </p>
+
+
+        {% if panel.caption %}
+
+        <p class="caption">
+
+            {{ panel.caption }}
+
+        </p>
+
+        {% endif %}
+
+
+        <div class="narration">
+
+            {{ panel.narration }}
+
+        </div>
+
+
+        {% if panel.dialogue %}
+
+        <div class="dialogue">
+
+            “{{ panel.dialogue }}”
+
+        </div>
+
+        {% endif %}
+
+
+        <details>
+
+            <summary>
+                View image prompt
+            </summary>
+
+            <p>
+                {{ panel.image_prompt }}
+            </p>
+
+        </details>
+
+    </article>
+
+{% endfor %}
+
+</section>
+
+{% endblock %}
